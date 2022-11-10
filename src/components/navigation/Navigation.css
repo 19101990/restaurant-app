@@ -1,0 +1,18 @@
+.navigation {
+  display: flex;
+  flex-direction: row;
+}
+
+.navigation-item {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 40px;
+  color: black !important;
+  text-decoration: inherit;
+  text-transform: uppercase;
+  outline: none;
+}
