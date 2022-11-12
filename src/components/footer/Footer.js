@@ -1,5 +1,5 @@
 // import logo from "../images/logo/logo.jpg"
-import "./Footer.scss"
+import "../footer/Footer.scss"
 import { BsFacebook, BsInstagram, BsPinterest, BsFillPhoneFill, BsFillEnvelopeFill } from 'react-icons/bs';
 
 
