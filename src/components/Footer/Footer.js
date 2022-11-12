@@ -1,12 +1,13 @@
-import "../footer/Footer.scss";
+// import logo from "../images/logo/logo.jpg"
+import "./Footer.scss"
 import { BsFacebook, BsInstagram, BsPinterest, BsFillPhoneFill, BsFillEnvelopeFill } from 'react-icons/bs';
-import footerImg from '../../images/logo/Svg.png';
+
 
 function Footer() {
   return (
     <footer>
       <div className="footer__logo">
-        <img src={footerImg} alt="Nitin Kitchen" />
+        <img src="https://github.com/19101990/restaurant-app/blob/header-navigation/src/images/logo/logo.jpg?raw=true" alt="Nitin Kitchen" />
       </div>
       <div className="footer__contact">
         <a href="tel:00000000" title="phone"><BsFillPhoneFill /> (0)000 00 000</a>
