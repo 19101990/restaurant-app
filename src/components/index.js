@@ -1,8 +1,9 @@
 import Header from "./header";
 import Navigation from "./navigation/Navigation";
-import Footer from "./footer";
+import Main from "./Main/Main"
+import Footer from "./Footer/";
 import "./header/Header.css";
 import "./navigation/Navigation.css";
-import "./footer/Footer.scss"
+import "./Footer/Footer.scss"
 
-export { Header, Navigation, Footer, };
+export { Header, Navigation, Footer, Main };
