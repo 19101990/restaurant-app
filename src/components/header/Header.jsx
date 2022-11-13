@@ -10,7 +10,7 @@ function Header() {
       <section className="header-top">
         <section className="header-top__logo">
           <a href="/">
-            <img src={logo} width="140" height="80" />
+            <img src={logo} width="140" height="80" alt="logo" />
           </a>
         </section>
         <section className="header-top__navbar">
