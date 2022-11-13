@@ -1,71 +1,153 @@
 @import "../../variables.scss";
 
-.card {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border-radius: 25px;
-  padding: 20px;
-  overflow: hidden;
-}
-
-.card__media {
-  border-radius: 25px;
-  animation: fadeIn 8s;
-}
-
-.card:hover .card__media {
-  transform: scale(0.85) rotate(0.7deg);
-}
-
-.grid{
-    background-color: $grid_color;
-    padding-bottom: 5px;
-}
-
-.grid__top{
-    padding-bottom: 0;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
+.menu {
+  // whole section: title + grid
+  &__container {
+    background: $background_dark;
+    color: $text_reverse;
+    padding: 20px 20px 80px;
+    h2 {
+      margin: 0;
+      padding: 20px 0 40px;
+      text-align: center;
+      font-size: 40px;
+      font-family: $heading;
+    }
   }
-  100% {
-    opacity: 1;
+  // menu items
+  &__wrapper {
+    display: grid; // turn on grid for the parent element
+    grid-gap: 24px; // add spacing between items
+    grid-template-columns: 1fr; // set number of columns; all screens unless other rules apply
+    @media(min-width: 500px) {
+      grid-template-columns: 1fr 1fr; // all screens with minimum width of 500px unless other rules apply
+    }
+    @media(min-width: 900px) {
+      grid-template-columns: 1fr 1fr 1fr; // all screens with minimum width of 800px unless other rules apply
+    }
+    @media(min-width: 1200px) {
+      grid-template-columns: 1fr 1fr 1fr 1fr; // all screens with minimum width of 1200px unless other rules apply
+    }
+  }
+  // single item
+  &__item {
+    max-width: 100%;
+    background: $background_color;
+    color: $text_color;
+    padding: 10px;
+    @media(min-width: 800px) {
+      padding: 20px;
+    }
+    
+    // styles for item image
+    &_img {
+      width: 100%;
+      img {
+        max-width: 100%; // set image to not be wider than it's container
+        aspect-ratio: 1; // set height equal to width
+        object-fit: cover; // make image to fill available space
+      }
+    }
+    // styles for item text
+    &_text {
+      h5 {
+        font-weight: 400;
+        font-size: 22px;
+        margin: 10px 0;
+        color: $secondary_color;
+        text-transform: uppercase;
+      }
+      p {
+        margin-top: 0;
+      }
+    }
+
+    // styles for item animation on mouse over - apply only to bigger screens
+    @media(min-width: 900px) {
+      cursor: pointer;
+      .menu__item_img img {
+        transition: all 0.5s; // apply 3s transition for all image changes
+      }
+      &:hover {
+        .menu__item_img img {
+          transform: scale(0.95);
+          border-radius: 20px;
+        }
+      }
+    }
   }
 }
 
-.card {
-  &__title {
-    color: $secondary_color;
-    font-family: "Catamaran", sans-serif;
-    text-transform: uppercase;
-    font-size: 30px;
-    line-height: 30px;
-    padding: 0px;
-    font-family: $title_font;
-  }
 
-  &__description{
-      color: $description_color;
-  }
-}
 
-h1 {
-  padding-top: 10px;
-  text-align: center;
-  text-transform: uppercase;
-  color: $primary_color;
-  text-shadow: -1px -1px rgb(80, 83, 80), 1px 1px rgb(211, 157, 157),
-    -3px 0 4px #000;
-  font-weight: 400;
-  text-align: center;
-  -moz-box-shadow: 2px 2px 6px rgb(175, 175, 175);
-  -webkit-box-shadow: 2px 2px 6px rgb(226, 224, 224);
-  box-shadow: 2px 2px 6px #888;
-  background-color: $grid_color;
-}
 
-.card__description{
-    font-family: $font;
-}
+
+// .card {
+//   margin-top: 10px;
+//   margin-bottom: 10px;
+//   border-radius: 25px;
+//   padding: 20px;
+//   overflow: hidden;
+// }
+
+// .card__media {
+//   border-radius: 25px;
+//   animation: fadeIn 8s;
+// }
+
+// .card:hover .card__media {
+//   transform: scale(0.85) rotate(0.7deg);
+// }
+
+// .grid{
+//     background-color: $grid_color;
+//     padding-bottom: 5px;
+// }
+
+// .grid__top{
+//     padding-bottom: 0;
+// }
+
+// @keyframes fadeIn {
+//   0% {
+//     opacity: 0;
+//   }
+//   100% {
+//     opacity: 1;
+//   }
+// }
+
+// .card {
+//   &__title {
+//     color: $secondary_color;
+//     font-family: "Catamaran", sans-serif;
+//     text-transform: uppercase;
+//     font-size: 30px;
+//     line-height: 30px;
+//     padding: 0px;
+//     font-family: $title_font;
+//   }
+
+//   &__description{
+//       color: $description_color;
+//   }
+// }
+
+// h1 {
+//   padding-top: 10px;
+//   text-align: center;
+//   text-transform: uppercase;
+//   color: $primary_color;
+//   text-shadow: -1px -1px rgb(80, 83, 80), 1px 1px rgb(211, 157, 157),
+//     -3px 0 4px #000;
+//   font-weight: 400;
+//   text-align: center;
+//   -moz-box-shadow: 2px 2px 6px rgb(175, 175, 175);
+//   -webkit-box-shadow: 2px 2px 6px rgb(226, 224, 224);
+//   box-shadow: 2px 2px 6px #888;
+//   background-color: $grid_color;
+// }
+
+// .card__description{
+//     font-family: $font;
+// }

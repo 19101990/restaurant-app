@@ -1,12 +1,4 @@
 import React from "react";
-import {
-  Grid,
-  Card,
-  CardActionArea,
-  CardMedia,
-  CardContent,
-  Typography,
-} from "@mui/material";
 import './Menu.scss'
 
 function Menu() {
@@ -22,34 +14,22 @@ function Menu() {
   ];
 
   return (
-    <section>
-      <h1>Menu</h1>
-    <Grid container spacing={3} className="grid__top">
-      {cardInfo.map((card) => (
-        <Grid item xs={3} className="grid">
-          <Card sx={{ maxWidth: 345 }} className="card">
-            <CardActionArea>
-              <CardMedia className="card__media"
-                component="img"
-                height="300"
-                width="100"
-                image = {card.image}
-                alt={card.title}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div" className="card__title">
-                  {card.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary" className="card__description">
-                  {card.description}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </Grid>
-      ))}
-    </Grid>
-    </section>
+    <div className="menu__container">
+      <h2>Our menu</h2>
+      <div className="menu__wrapper">
+        {cardInfo.map((card) => (
+          <div className="menu__item">
+            <div className="menu__item_img">
+              <img src={card.image} alt={card.title} />
+            </div>
+            <div className="menu__item_text">
+              <h5>{card.title}</h5>
+              <p>{card.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
