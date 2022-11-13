@@ -63,7 +63,7 @@ footer {
             align-items: center;
             text-decoration: none;
             line-height: 30px;
-            color: $text_reverse;
+            color: $secondary_color;
             svg {
                 margin-right: 10px;
                 font-size: 20px;
@@ -71,7 +71,7 @@ footer {
             @media(min-width: 979px) {
                 transition: all 0.3s ease-in;
                 &:hover {
-                    color: $secondary_color;
+                    color: $text_color;
                 }
             }
         }
@@ -81,7 +81,7 @@ footer {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: $text_reverse;
+        color: $secondary_color;
         span {
             line-height: 24px;
         }
@@ -95,12 +95,13 @@ footer {
             margin: 10px;
             font-size: 36px;
             line-height: 36px;
-            color: $text_reverse;
+            color: $secondary_color;
             @media(min-width: 979px) {
                 transform: translateY(0);
                 transition: all 0.3s;
                 &:hover {
                     transform: translateY(-5px);
+                    color: $text_color;
                 }
             }
         } 
@@ -109,7 +110,7 @@ footer {
 
 .copyrights {
     margin: 0 -15px;
-    padding: 10px 0;
+    padding: 15px 0;
     color: $text_reverse;
     position: relative;
     display: flex;
