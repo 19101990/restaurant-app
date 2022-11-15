@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './Menu.scss'
 
 function Menu() {
@@ -13,12 +13,20 @@ function Menu() {
     { image: "https://images.pexels.com/photos/1213710/pexels-photo-1213710.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", title: "Diet food", description: "Salad, Brown bread, Avacado, Diet coke" },
   ];
 
+  const [search, setSearch] = useState('')
+  // console.log(search)
+  // console.log(cardInfo)
   return (
     <div className="menu__container">
       <h2>Our menu</h2>
+      <form className="menu__search">
+        <input className="menu__search_field" type="text" placeholder="What are you looking for?" onChange={(event) => setSearch(event.target.value)} />
+      </form>
       <div className="menu__wrapper">
-        {cardInfo.map((card) => (
-          <div className="menu__item">
+        {cardInfo.filter((card) => {
+          return search.toLowerCase() === '' ? card : card.title.toLowerCase().includes(search)
+        }).map((card) => (
+          <div className="menu__item" key={card.title}>
             <div className="menu__item_img">
               <img src={card.image} alt={card.title} />
             </div>
