@@ -1,7 +1,17 @@
 .navigation {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  padding-bottom: 20px;
 }
+
+@media(min-width: 900px) {
+  .navigation {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 0;
+  }
+}
+
 
 .navigation-item {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
@@ -10,9 +20,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 40px;
   color: black !important;
   text-decoration: inherit;
   text-transform: uppercase;
   outline: none;
+}
+
+@media(min-width: 900px) {
+  .navigation-item {
+    margin-left: 40px;
+  }
 }
