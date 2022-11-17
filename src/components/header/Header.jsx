@@ -1,25 +1,27 @@
-import React from "react";
-import { Navigation } from "..";
 import logo from "../../images/logo/logo.jpg";
+import { NavLink } from "react-router-dom";
 
-import "./Header.css";
+import "./Header.scss";
 
 function Header() {
   return (
-    <section className="header">
-      <section className="header-top">
-        <section className="header-top__logo">
-          <a href="/">
-            <img src={logo} width="140" height="80" alt="logo" />
-          </a>
-        </section>
-        <section className="header-top__navbar">
-          <section className="header-top__navigation">
-            <Navigation />
-          </section>
-        </section>
+    <header>
+      <div className="header__logo">
+        <a href="/">
+          <img src={logo} width="140" height="80" alt="logo" />
+        </a>
+      </div>
+      <section className="header__nav">
+        <nav>
+          <NavLink exact activeClassName="active" to="/">
+            Home
+            </NavLink>
+          <NavLink activeClassName="active" to="/cart">
+            Cart
+            </NavLink>
+        </nav>
       </section>
-    </section>
+    </header>
   );
 }
 
