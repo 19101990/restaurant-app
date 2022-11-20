@@ -15,7 +15,7 @@ function Menu() {
   // ];
 
   const [search, setSearch] = useState('')
-  
+
   return (
     <div className="menu__container">
       <h2>Our menu</h2>

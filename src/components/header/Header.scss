@@ -1,0 +1,45 @@
+@import "../../variables.scss";
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @media(min-width: 500px) {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 30px;
+    }
+    nav {
+        a {
+            padding: 5px 3px;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+            color: $text_color;
+            font-family: $heading;
+            position: relative;
+            @media(min-width: 900px) {
+                &:before {
+                  content: '';
+                  position: absolute;
+                  bottom: 0;
+                  left: 0;
+                  height: 1px;
+                  width: 0;
+                  background: $text_color;
+                  transition: all 0.3s;
+                }
+                &:hover {
+                    color: $text_color;
+                    &:before {
+                      height: 2px;
+                      width: 100%;
+                      background: $text_color;
+                    }
+                }
+            }
+        }
+    }
+}
