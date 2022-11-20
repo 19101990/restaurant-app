@@ -1,7 +1,10 @@
+import "./Cart.scss";
+
+
 function Cart() {
     return (
-        <main>
-            <h1>Cart Page</h1>
+        <main className="cart">
+            <h1>Your cart is currently empty!</h1>
         </main>
     );
 }

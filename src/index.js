@@ -7,10 +7,10 @@ import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 
 
-import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
 const routing = (
-  <Router>
+  <BrowserRouter>
     <div>
       <Header />
       <Routes>
@@ -20,7 +20,7 @@ const routing = (
       </Routes>
       <Footer />
     </div>
-  </Router>
+  </BrowserRouter>
 );
 
 ReactDOM.render(routing, document.getElementById("root"));
