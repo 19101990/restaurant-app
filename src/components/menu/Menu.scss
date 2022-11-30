@@ -1,0 +1,221 @@
+@import "../../variables.scss";
+
+.menu {
+  // whole section: title + grid
+  &__container {
+    background: $background_color;
+    color: $text_color;
+    padding: 20px 20px 80px;
+    display: grid;
+    grid-template-areas: "heading"
+                         "search"
+                         "grid";
+    @media(min-width: 900px) {
+      grid-template-areas: "heading search"
+                            "grid grid";
+    }
+    
+    h2 {
+      margin: 0;
+      padding: 20px 15px 20px;
+      font-size: 50px;
+      color: $secondary_color;
+      font-family: $heading;
+      grid-area: heading;
+      @media(min-width: 900px) {
+        padding: 20px 15px 40px;
+      }
+    }
+  }
+  // menu items
+  &__wrapper {
+    display: grid; // turn on grid for the parent element
+    grid-gap: 24px; // add spacing between items
+    grid-template-columns: 1fr; // set number of columns; all screens unless other rules apply
+    grid-area: grid;
+    @media(min-width: 500px) {
+      grid-template-columns: 1fr 1fr; // all screens with minimum width of 500px unless other rules apply
+    }
+    @media(min-width: 900px) {
+      grid-template-columns: 1fr 1fr 1fr; // all screens with minimum width of 800px unless other rules apply
+    }
+    @media(min-width: 1200px) {
+      grid-template-columns: 1fr 1fr 1fr 1fr; // all screens with minimum width of 1200px unless other rules apply
+    }
+  }
+  // single item
+  &__item {
+    max-width: 100%;
+    background: #fff;
+    color: $text_color;
+    padding: 10px;
+    @media(min-width: 800px) {
+      padding: 20px;
+    }
+    &_price {
+      font-size: 30px;
+      position: relative;
+      font-weight: 700;
+      &:before {
+        content: '$';
+      }
+    }
+
+    &_buy {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 30px;
+      input {
+        max-width: 40px;
+        height: 30px;
+        padding: 0;
+        border: none;
+        text-align: center;
+        font-size: 20px;
+        color: $secondary_color;
+        background: $background_color;
+      }
+      &_quantity {
+        display: flex;
+      }
+    }
+
+    .item_quantity {
+      background: $secondary_color;
+      border: none;
+      height: 30px;
+      width: 30px;
+      font-size: 30px;
+      line-height: 30px;
+      color: $background_color;
+      cursor: pointer;
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        height: 2px;
+        background: $background_color;
+        width: 18px;
+        margin-left: 6px;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+      }
+      &.--increase {
+        border-radius: 0 5px 5px 0;
+        &:after {
+          content: '';
+          position: absolute;
+          height: 18px;
+          background: $background_color;
+          width: 2px;
+          margin-top: 6px;
+          left: 50%;
+          top: 0;
+          transform: translateX(-50%);
+          z-index: 1;
+        }
+        
+      }
+      &.--decrease {
+        border-radius: 5px 0 0 5px;
+      }
+      @media(min-width: 800px) {
+        transition: all 0.3s;
+        &:hover {
+          background: $primary_color;
+        }
+      }
+    }
+
+    // styles for item image
+    &_img {
+      width: 100%;
+      img {
+        max-width: 100%; // set image to not be wider than it's container
+        aspect-ratio: 1; // set height equal to width
+        object-fit: cover; // make image to fill available space
+      }
+    }
+    // styles for item text
+    &_text {
+      h5 {
+        font-weight: 400;
+        font-size: 22px;
+        margin: 10px 0;
+        color: $secondary_color;
+        // text-transform: uppercase;
+        font-family: $heading;
+      }
+      p {
+        margin-top: 0;
+      }
+      .sizes {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        .size {
+          padding: 4px 6px;
+          border: none;
+          border-radius: 5px;
+          background: $secondary_color;
+          color: $text_reverse;
+          font-size: 10px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          font-weight: 700;
+          margin-right: 5px;
+          cursor: pointer;
+          @media(min-width: 900px) {
+            transition: all 0.3s;
+            &:hover {
+              background: $primary_color;
+            }
+          }
+        }
+      }
+    }
+
+    // styles for item animation on mouse over - apply only to bigger screens
+    @media(min-width: 900px) {
+      cursor: pointer;
+      transition: all 0.5s;
+      .menu__item_img img {
+        transition: all 0.5s; // apply 3s transition for all image changes
+      }
+      &:hover {
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+        .menu__item_img img {
+          transform: scale(0.95);
+          border-radius: 20px;
+        }
+      }
+    }
+  }
+  // styles for search field
+  &__search {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    &_field {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      border: none;
+      grid-area: search;
+      &:focus {
+        outline: none;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+      }
+      @media(min-width: 900px) {
+        margin-bottom: 0;
+        width: auto;
+        min-width: 300px;
+      }
+    }
+  }
+}
