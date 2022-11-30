@@ -13,10 +13,10 @@ function Header() {
       </div>
       <section className="header__nav">
         <nav>
-          <NavLink exact activeClassName="active" to="/">
+          <NavLink to="/">
             Home
             </NavLink>
-          <NavLink activeClassName="active" to="/cart">
+          <NavLink to="/cart">
             Cart
             </NavLink>
         </nav>
